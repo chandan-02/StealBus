@@ -38,7 +38,7 @@ if (is_windows == True ):
     if 'UCBrowser.exe' or 'chrome.exe' or 'firefox.exe' in process:
         killprocess()
     else:
-        sys.exit(0)
+        pass
 
     #Main Function Starts From Here :-
 
