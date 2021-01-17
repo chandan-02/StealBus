@@ -112,7 +112,7 @@ if (sys.platform.startswith('win') == True ):
         with open ('UC_history.txt','w') as f:
             for title, url in history:
                 f.write("\n" +  title.encode('utf-8').strip() + " >> " + url.encode('utf-8').strip() + "\n")
-            f.write("\n\n" + "#CHEERS TO ninjadak1ng!!!")
+            f.write("\n\n" + "#Done!!!")
 
     ucpath32 = "C:\Program Files (x86)\UCBrowser"
     ucpath64 = "C:\Program Files\UCBrowser"
